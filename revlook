@@ -1,0 +1,16 @@
+#!/bin/bash
+
+IP=$(echo $1 | awk -F"." '{print $1"."$2"."$3}')
+ for i in $IP.{0..255};
+ do a=$( dig +short -x $i );
+        #printf "$i >> ";
+        #printf "$a\n";
+
+        if [ -n "$a" ]
+          then
+            printf "$i >> "
+            printf "$a\n"
+          fi
+
+
+        done
