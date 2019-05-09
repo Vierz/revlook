@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IP=$(echo $1 | awk -F"." '{print $1"."$2"."$3}')
+IP=$(cat $1 | awk -F"." '{print $1"."$2"."$3}')
  for i in $IP.{0..255};
  do a=$( dig +short -x $i );
         #printf "$i >> ";
